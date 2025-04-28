@@ -23,13 +23,16 @@ According to Prof. Kai Dong's requirements for writing an OS from scratch in the
 > - “OS”: a set of libraries of commonly-used functions.
 > - One program ran at a time, as controlled by a human operator.
 > 	- Batch system with a human operator.
+> 
 > 2nd Gen, transistor (1955-1965) — beyond Libraries: + Protection
 > - Now suppose a bus replacing the operator.
 > - What if an application read from / write to anywhere on disk?
 > 	- System call + Dual mode
+> 
 > 3rd Gen, integrated circuit (1965-1980) — minicomputer: + Long-term Scheduling
 >	- Multiprogramming
 > 	- Batch system with an operating system
+> 
 > 4th Gen, large-scale integration (1980-now) — personal computer (PC): + Short-term Scheduling
 > - Timesharing
 
