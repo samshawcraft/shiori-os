@@ -18,5 +18,7 @@ char *strupcase(char *str);
 char *strlowcase(char *str);
 char *strcat(char *dest, char const *src);
 char *strncat(char *dest, char const *src, int nb);
+char *strdup(const char *src);
+char *strtok(char *str,const char *delim);
 
 #endif

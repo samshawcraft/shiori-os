@@ -3,65 +3,65 @@
 [extern irq_handler]
 
 %macro handler_macro 2-3
-    handle_%+%1:
-        pusha
+  handle_%+%1:
+  pusha
 
-        mov ax, ds
-        push eax    ; save data segment
-        mov esi, eax
+  mov ax, ds
+  push eax    ; save data segment
+  mov esi, eax
 
-        mov ax, 0x10
-        mov ds, ax
-        mov es, ax
-        mov gs, ax
-        mov fs, ax  ; set data segments
+  mov ax, 0x10
+  mov ds, ax
+  mov es, ax
+  mov gs, ax
+  mov fs, ax  ; set data segments
 
-        push esp ; push the stack for the first arg of the c function
-        call %2
-        pop esp ; pop the pushed stack
-        %if %0 = 3
-            pop ebx
-            mov ebx, esi
-            mov ds, bx
-            mov es, bx
-            mov gs, bx
-            mov fs, bx
-        %else
-            pop eax
-            mov eax, esi
-            mov ds, ax
-            mov es, ax
-            mov gs, ax
-            mov fs, ax  ; restore data segments
-        %endif
+  push esp ; push the stack for the first arg of the c function
+  call %2
+  pop esp ; pop the pushed stack
+  %if %0 = 3
+    pop ebx
+    mov ebx, esi
+    mov ds, bx
+    mov es, bx
+    mov gs, bx
+    mov fs, bx
+  %else
+    pop eax
+    mov eax, esi
+    mov ds, ax
+    mov es, ax
+    mov gs, ax
+    mov fs, ax  ; restore data segments
+  %endif
 
-        popa
+  popa
 
-        add esp, 8  ; Remove the 2 params that's left in the stack
-        iret
+  add esp, 8  ; Remove the 2 params that's left in the stack
+  iret
 %endmacro
 
 %macro isr_macro 1-2
-    global isr%+%1
-    isr%+%1:
-        cli
-        %if %0 = 1
-            push byte 0x0
-            push byte %1
-        %else
-            push byte %2
-            push byte %1
-        %endif
-        jmp handle_isr
+  global isr%+%1
+  isr%+%1:
+  cli
+  %if %0 = 1
+    push byte 0x0
+    push byte %1
+  %else
+    push byte %2
+    push byte %1
+  %endif
+  jmp handle_isr
 %endmacro
 
 %macro irq_macro 2
-    global irq%+%1
-    irq%+%1:
-        cli
-        push byte %2
-        push byte %1
-        jmp handle_irq
+  global irq%+%1
+  irq%+%1:
+  cli
+  push byte %2
+  push byte %1
+  jmp handle_irq
 %endmacro
 
 handler_macro isr, isr_handler

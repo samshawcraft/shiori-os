@@ -2,6 +2,7 @@
 #include "driver/rsdp.h"
 #include "driver/acpi.h"
 #include "kernel/lib/include/string.h"
+#include "kernel/lib/include/stdio.h"
 
 static void *check_rsdp_addr(rsdp_descriptor_t *rsdp_search)
 {
@@ -37,7 +38,7 @@ static void *find_rsdp_descriptor(void)
     }
     printf("No valid RSDP Descriptor in Main BIOS area\n\rSearching in Extended BIOS Area\n\r");
     ebda = (short *) *((short *) 0x40E);
-    for (rsdp_search = ebda; (unsigned int) rsdp_search < ebda + 1000; rsdp_search += 8) {
+    for (rsdp_search = ebda; (unsigned int) rsdp_search < (unsigned int) ebda + 1000; rsdp_search += 8) {
         if (check_rsdp_addr(rsdp_search) != NULL)
             return (rsdp_search);
     }

@@ -1,7 +1,0 @@
-.vscode/
-*.o
-*.bin
-image_os
-.gdb_history
-peda-session-*
-kernel.elf

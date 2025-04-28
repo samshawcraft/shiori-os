@@ -2,7 +2,7 @@
 #include "interrupts/irq.h"
 #include "kernel/lib/include/stdio.h"
 #include "kernel/lib/include/stdlib.h"
-#include "kernel/command_queue.h"
+#include "modules/command_queue.h"
 #include "driver/mouse.h"
 
 command_queue_t *ms_command_queue = NULL;
@@ -95,7 +95,7 @@ mouse_status_t gs_mouse_status(mouse_move_packet_t *move_packet)
     if (move_packet == NULL) {
         return (mouse_status);
     }
-    if (move_packet == 0x1) {
+    if (move_packet == (mouse_move_packet_t *)0x1) {
         mouse_status.number_of_samples = 0;
         mouse_status.delta_x = 0;
         mouse_status.delta_y = 0;

@@ -1,5 +1,6 @@
 #include "driver/rsdp.h"
 #include <stddef.h>
+#include "kernel/lib/include/stdio.h"
 
 static int validate_checksum(acpi_sdt_header_t *acpi_sdt_header)
 {

@@ -29,7 +29,7 @@ LANDED:
 [bits 16]
 BOOT_DRIVE      db 0
 DISK_ERROR_MSG  db 'ERROR READING DISK. HANGING', 0ah, 0dh, 0
-STARTING_MSG    db 'Starting UselessOS 0.1', 0ah, 0dh, 0
+STARTING_MSG    db 'Starting ShioriOS alpha build 0', 0ah, 0dh, 0
 LOADING_KERNEL  db 'Loading the kernel into memory', 0ah, 0dh, 0
 
 times 510-($-$$) db 0

@@ -8,7 +8,7 @@ base_size = size / 512
 if size % 512 > 0:
     base_size += 1
 
-print("calculate_kernel_size.py: \033[91m" + str(int(base_size)) + " sectors will be loaded into the ram \033[0m")
+print("calculate_kernel_size.py: " + str(int(base_size)) + " sectors will be loaded into the ram")
 
 to_write = open("./bootloader/kernel_size.asm", "w");
 to_write.write("%define kernel_size " + str(int(base_size)))

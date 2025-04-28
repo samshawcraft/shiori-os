@@ -2,6 +2,7 @@
 #define H_IRQ
 
 #include <stddef.h>
+#include "interrupts/isr.h"
 
 extern void irq0(void);
 extern void irq1(void);
@@ -20,7 +21,9 @@ extern void irq13(void);
 extern void irq14(void);
 extern void irq15(void);
 
+
 void registers_irq(void);
-void install_irq_handler(int irq, unsigned int handler);
+void install_irq_handler(int irq, void (*handler)(reg_t *));
+void irq_handler(reg_t *regs);
 
 #endif

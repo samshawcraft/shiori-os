@@ -1,4 +1,5 @@
 #include "command_queue.h"
+#include "kernel/lib/include/stdlib.h"
 
 void push_to_queue(command_queue_t **queue, unsigned char command, int (*callback)(unsigned char received, int reset))
 {

@@ -2,7 +2,10 @@
 #define H_VGA_GRAPHIC_MODE
 
 #define VGA_FRONT_BUFFER 0xA0000
-#define VGA_BACK_BUFFER  0xAFFFF
+#define VGA_BACK_BUFFER  0xB0000
+
+#define VGA_HEIGHT 200
+#define VGA_WIDTH 320
 
 /*!
     Enable the 256 mode x
