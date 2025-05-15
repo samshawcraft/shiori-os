@@ -17,7 +17,7 @@ The following parts of this OS are based on Théo HEMMER's work, some of which a
 Functionality
 -------------
 
-According to Prof. Kai Dong's requirements for writing an OS from scratch in the summer of 2025, the OS completed in the experiment should at least reach the level of a 2nd Gen of OS. Furthermore, if any one of the features in the 3rd Gen of OS is implemented, the experiment would get extra marks.
+According to Prof. Kai Dong's requirements for writing an OS from scratch in the spring of 2025, the OS completed in the experiment should at least reach the level of a 2nd Gen OS. Furthermore, if any one of the features in the 3rd Gen OS is implemented, the experiment would get extra marks.
 
 > 1st Gen, vacuum tube (1945-1955) — mainframe: Libraries
 > - “OS”: a set of libraries of commonly-used functions.
@@ -38,6 +38,8 @@ According to Prof. Kai Dong's requirements for writing an OS from scratch in the
 
 ### Progress Tracking
 
+This operating system implementation(alpha build 0) has got 22 scores(including 2 extra scores) in Prof. Kai Dong's class, even with memory protection and I/O protection not implemented. He has made a comment that "I think you are interested in computer architecture, isn't it? Which class were you in? This operating system is tearing up the rulebook". But please be aware if you want to use this as your operating system labwork, you will be probably asked a lot about driver implementation and he will think over to give you extra credits!
+
 #### Minimum Requirements for Experimental Objectives
 - [x] System calls (Syscall #103 syslog is implemented in alpha build 0)
 - [x] Dual mode (User mode is switched to and has a syscall of syslog in alpha build 0)
@@ -56,7 +58,7 @@ This list of requirements is from [Creating an Operating System](https://wiki.os
 - [x] Terminal support (Implemented in alpha build 0, partly from Théo HEMMER's)
 - [ ] Stack smash protector 
 - [ ] Multiboot
-- [x] Global Descriptor Table (Implemented in alpha build 0, partly from Théo HEMMER's)
+- [x] Global descriptor table (Implemented in alpha build 0, partly from Théo HEMMER's)
 - [x] Memory management (Implemented in alpha build 0, from Théo HEMMER's)
 - [x] Interrupts (Implemented in alpha build 0, partly from Théo HEMMER's)
 - [ ] Multithreaded kernel
@@ -64,7 +66,7 @@ This list of requirements is from [Creating an Operating System](https://wiki.os
 - [ ] Internal kernel debugger
 - [ ] Filesystem support
 - [x] Dual mode (Implemented in alpha build 0)
-- [ ] Program Loading 
+- [ ] Program loading 
 - [ ] System calls
 - [ ] OS specific toolchain
 - [ ] Creating a C library 
@@ -72,7 +74,7 @@ This list of requirements is from [Creating an Operating System](https://wiki.os
 - [ ] Shell
 - [ ] Time
 - [ ] Threads
-- [ ] Thread Local Storage
+- [ ] Thread local storage
 - [ ] Symmetric multiprocessing
 - [ ] Secondary storage
 - [ ] Real filesystems
@@ -85,7 +87,7 @@ This list of requirements is from [Creating an Operating System](https://wiki.os
 Compile and Run
 ---------------
 
-To compile this OS, you'll need a [Cross Compiler](https://wiki.osdev.org/GCC_Cross-Compiler) for i686-elf.
+To compile this OS, you'll need a [Cross Compiler](https://wiki.osdev.org/GCC_Cross-Compiler) for i686-elf. Also, you'll probably use python to help calculate kernel size and nasm to compile assembly files.
 
 To run this OS, you will also need [QEMU](https://www.qemu.org/) for i386.
 
